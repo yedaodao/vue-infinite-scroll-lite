@@ -1,9 +1,10 @@
 {
   "name": "vue-infinite-scroll-lite",
   "description": "A vue component for infinite scroll",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "yedaodao <404069912@qq.com>",
-  "private": true,
+  "main": "./dist/vue-infinite-scroll-lite.js",
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --watch",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

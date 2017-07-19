@@ -2,12 +2,16 @@ var path = require('path')
 var webpack = require('webpack')
 var htmlWebpackPlugin = require('html-webpack-plugin')
 
+const libName = 'vue-infinite-scroll-lite';
+
 module.exports = {
-    entry: './src/main.js',
+    entry: './index.js',
     output: {
-        path: path.resolve(__dirname, './lib'),
-        publicPath: './lib/',
-        filename: 'vue-infinite-scroll-lite.js'
+        path: path.resolve(__dirname, './dist'),
+        publicPath: './dist/',
+        filename: libName + '.js',
+        libraryTarget: "umd",
+        library: libName,
     },
     module: {
         rules: [
@@ -33,6 +37,9 @@ module.exports = {
             }
         ]
     },
+    externals: {
+        vue: 'vue',
+    },
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
@@ -42,12 +49,6 @@ module.exports = {
         hints: false
     },
     devtool: '#eval-source-map',
-    plugins: [
-        new htmlWebpackPlugin({
-            template: 'src/index.html',
-            filename: '../index.html'
-        }),
-    ],
 };
 
 if (process.env.NODE_ENV === 'production') {
